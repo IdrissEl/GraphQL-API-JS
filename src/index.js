@@ -51,6 +51,17 @@ const resolvers = {
             db.clothing.push(clothing)
 
             return clothing
+        },
+        updateClothing(_, args) {
+            db.clothing = db.clothing.map((c) => {
+                if (c.id === args.id) {
+                    return {...c, ...args.edits}
+                }
+
+                return c
+            })
+
+            return db.clothing.find((c) => c.id === args.id)
         }
     }
 }

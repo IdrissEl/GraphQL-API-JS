@@ -38,10 +38,16 @@ export const typeDefs = `#graphql
     type Mutation {
         addClothing(clothing: AddClothingInput!): Clothing
         deleteClothing(id: ID!): [Clothing]
+        updateClothing(id: ID!, edits: EditClothingInput!): Clothing
     }
 
     input AddClothingInput {
         name: String!
         size: [String!]!,
+    }
+
+    input EditClothingInput {
+        name: String
+        size: [String!],
     }
 `;
