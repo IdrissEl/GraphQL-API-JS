@@ -26,5 +26,8 @@ export const typeDefs = `#graphql
         clothing: [Clothing],
         brands: [Brand],
         reviews: [Review],
+        cloth(id: ID!): Clothing,
+        brand(id: ID!): Brand,
+        review(id: ID!): Review,
     }
 `;

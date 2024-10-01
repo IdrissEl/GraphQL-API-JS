@@ -15,7 +15,16 @@ const resolvers = {
         },
         brands() {
             return db.brands;
-        } 
+        },
+        review(_, args) {
+            return db.reviews.find((review) => review.id === args.id);
+        },
+        brand(_, args) {
+            return db.brands.find((brand) => brand.id === args.id);
+        },
+        cloth(_, args) {
+            return db.clothing.find((cloth) => cloth.id === args.id);
+        }
     }
 }
 
