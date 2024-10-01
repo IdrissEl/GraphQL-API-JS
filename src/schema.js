@@ -6,6 +6,8 @@ export const typeDefs = `#graphql
         size: [String!]!,
         price: Float!,
         image: String!,
+        brand: Brand!
+        reviews: [Review!]
     }
 
     type Review {
@@ -13,6 +15,7 @@ export const typeDefs = `#graphql
         rating: Int!,
         content: String!,
         author: String!,
+        cloth: Clothing!
     }
 
     type Brand {
@@ -20,6 +23,7 @@ export const typeDefs = `#graphql
         name: String!,
         description: String!,
         image: String!,
+        clothing: [Clothing!]
     }
 
     type Query {

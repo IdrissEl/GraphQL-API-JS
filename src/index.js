@@ -25,6 +25,16 @@ const resolvers = {
         cloth(_, args) {
             return db.clothing.find((cloth) => cloth.id === args.id);
         }
+    },
+    Clothing: {
+        reviews(parent) {
+            return db.reviews.filter((r) => r.clothing_id === parent.id)
+        }
+    },
+    Brand: {
+        clothing(parent) {
+            return db.clothing.filter((b) => b.brand_id === parent.id)
+        }
     }
 }
 
