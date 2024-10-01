@@ -35,6 +35,23 @@ const resolvers = {
         clothing(parent) {
             return db.clothing.filter((b) => b.brand_id === parent.id)
         }
+    },
+    Mutation: {
+        deleteClothing(_, args) {
+            db.clothing = db.clothing.filter((c) => c.id !== args.id)
+            
+            return db.clothing
+        },
+
+        addClothing(_, args) {
+            let clothing = {
+                ...args.clothing,
+                id: Math.floor(Math.random() * 10000).toString()
+            }
+            db.clothing.push(clothing)
+
+            return clothing
+        }
     }
 }
 

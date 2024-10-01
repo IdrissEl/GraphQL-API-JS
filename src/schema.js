@@ -34,4 +34,14 @@ export const typeDefs = `#graphql
         brand(id: ID!): Brand,
         review(id: ID!): Review,
     }
+
+    type Mutation {
+        addClothing(clothing: AddClothingInput!): Clothing
+        deleteClothing(id: ID!): [Clothing]
+    }
+
+    input AddClothingInput {
+        name: String!
+        size: [String!]!,
+    }
 `;
